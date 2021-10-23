@@ -1,6 +1,6 @@
 {  
-   "name":"Programmable tab recording extension",
-   "short_name":"Programmable tab recording extension",
+   "name":"programmable tab recording extension",
+   "short_name":"programmable tab recording extension",
    "author":"Wesley Ferreira",
    "version":"1.0",
    "manifest_version":2,
