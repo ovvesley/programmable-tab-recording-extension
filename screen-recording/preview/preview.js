@@ -160,18 +160,18 @@ DiskStorage.GetLastSelectedFile(recentFile, function(file) {
 
 var btnUploadDropDown = document.querySelector('#btn-upload-dropdown');
 document.querySelector('#btn-upload').onclick = function(e) {
-    e.stopPropagation();
+    // e.stopPropagation();
 
-    if (!file) {
-        alert('You have no recordings.');
-        return;
-    }
+    // if (!file) {
+    //     alert('You have no recordings.');
+    //     return;
+    // }
 
-    if (btnUploadDropDown.className === 'visible') {
-        btnUploadDropDown.className = '';
-    } else {
-        btnUploadDropDown.className = 'visible';
-    }
+    // if (btnUploadDropDown.className === 'visible') {
+    //     btnUploadDropDown.className = '';
+    // } else {
+    //     btnUploadDropDown.className = 'visible';
+    // }
 };
 
 var btnRecordingsListDropDown = document.querySelector('#btn-recordings-list-dropdown');
@@ -263,9 +263,9 @@ document.querySelector('#btn-recordings-list').onclick = function(e) {
 };
 
 document.body.onclick = function() {
-    if (btnUploadDropDown.className === 'visible') {
-        btnUploadDropDown.className = '';
-    }
+    // if (btnUploadDropDown.className === 'visible') {
+    //     btnUploadDropDown.className = '';
+    // }
 
     if (btnRecordingsListDropDown.className === 'visible') {
         btnRecordingsListDropDown.className = '';
