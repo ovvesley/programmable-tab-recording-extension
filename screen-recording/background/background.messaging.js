@@ -4,6 +4,21 @@ chrome.runtime.onConnect.addListener(function(port) {
     runtimePort = port;
 
     runtimePort.onMessage.addListener(function(message) {
+
+        if (message.timeToRecording){
+            chrome.tabs.query({
+                active: true,
+                currentWindow: true
+            }, function(arrayOfTabs) {
+                var activeTab = arrayOfTabs[0];
+                var activeTabId = activeTab.id; // or do whatever you need
+                setTimeout(function (){               
+                    stopScreenRecording()
+                    chrome.tabs.remove(activeTabId, function() { });
+                },Number(message.timeToRecording)+ 2000);
+            })            
+        }
+
         if (!message || !message.messageFromContentScript1234) {
             return;
         }
@@ -83,5 +98,12 @@ chrome.runtime.onConnect.addListener(function(port) {
             stopScreenRecording();
             return;
         }
+
+
+       
+
     });
+
+
+
 });

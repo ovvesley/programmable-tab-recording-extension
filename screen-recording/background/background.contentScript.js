@@ -174,3 +174,23 @@ function RecordRTC_Extension(config) {
 var script = document.createElement('script');
 (document.head || document.body || document.documentElement).appendChild(script).text = RecordRTC_Extension.toString() + ';;';
 script.remove();
+
+function isGoogleMeet(){
+    return window.location.href.includes("meet.google.com")
+}
+
+function getUsersInCall(){
+    return [...document.querySelectorAll('.H5Sn2e')].map(el=> el.innerText)
+}
+
+function handleStateMeet(){
+    console.log(window.location.href)
+    if (isGoogleMeet()){
+        let users = getUsersInCall();        
+    }
+}
+if (isGoogleMeet()){
+    setInterval(handleStateMeet, 1000);
+}
+
+

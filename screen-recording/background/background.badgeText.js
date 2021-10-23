@@ -71,16 +71,20 @@ function setBadgeText(text) {
 }
 
 
-var images = ['recordRTC-progress-1.png', 'recordRTC-progress-2.png', 'recordRTC-progress-3.png', 'recordRTC-progress-4.png', 'recordRTC-progress-5.png'];
+var images = ['main-icon.png', 'main-icon.png', 'main-icon.png', 'main-icon.png', 'main-icon.png'];
 var imgIndex = 0;
 var reverse = false;
 
 function onRecording() {
     if(!isRecording) return;
-    
-    chrome.browserAction.setIcon({
-        path: 'images/' + images[imgIndex]
-    });
+    try{
+        chrome.browserAction.setIcon({
+            path: 'images/' + images[imgIndex]
+        });
+    }catch(e){
+        console.log(e)
+    }
+   
 
     if (!reverse) {
         imgIndex++;
