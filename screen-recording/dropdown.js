@@ -14,8 +14,6 @@ chrome.storage.sync.get('isRecording', function(obj) {
     document.getElementById('stop-section').style.display = obj.isRecording === 'true' ? 'block' : 'none';
 
     isRecording = obj.isRecording === 'true';
-
-    // auto-stop-recording
     if (isRecording === true) {
         document.getElementById('stop-recording').click();
 
@@ -52,213 +50,34 @@ document.getElementById('stop-recording').onclick = function() {
     });
 };
 
-document.getElementById('full-screen').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'false',
-        enableTabCaptureAPIAudioOnly: 'false',
-        enableMicrophone: 'false',
-        enableCamera: 'false',
-        enableScreen: 'true',
-        isRecording: 'true',
-        enableSpeakers: 'false'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
-};
-
-document.getElementById('full-screen-audio').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'false',
-        enableTabCaptureAPIAudioOnly: 'false',
-        enableMicrophone: 'false',
-        enableCamera: 'false',
-        enableScreen: 'true',
-        isRecording: 'true',
-        enableSpeakers: 'true'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
-};
-
-document.getElementById('full-screen-microphone-audio').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'false',
-        enableTabCaptureAPIAudioOnly: 'false',
-        enableMicrophone: 'true',
-        enableCamera: 'false',
-        enableScreen: 'true',
-        isRecording: 'true',
-        enableSpeakers: 'true'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
-};
 
 document.getElementById('selected-tab').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'true',
-        enableTabCaptureAPIAudioOnly: 'false',
-        enableMicrophone: 'false',
-        enableCamera: 'false',
-        enableScreen: 'false',
-        isRecording: 'true',
-        enableSpeakers: 'false'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
-};
+    let value = document.getElementById('minutesrecording').value;
+    let minutes = Number(value);
+    if (minutes<= 0){
+        alert("minutes invalid. number need >=0");
+        window.close();      
 
-document.getElementById('selected-tab-audio-only').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'true',
-        enableTabCaptureAPIAudioOnly: 'true',
-        enableMicrophone: 'false',
-        enableCamera: 'false',
-        enableScreen: 'false',
-        isRecording: 'true',
-        enableSpeakers: 'false'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
+    }else{
+        chrome.storage.sync.set({
+            enableTabCaptureAPI: 'true',
+            enableTabCaptureAPIAudioOnly: 'false',
+            enableMicrophone: 'false',
+            enableCamera: 'false',
+            enableScreen: 'false',
+            isRecording: 'true',
+            enableSpeakers: 'false'
+        }, function() {
+            let milsec = minutes*60*1000
+            runtimePort.postMessage({
+                messageFromContentScript1234: true,
+                timeToRecording: milsec,
+                startRecording: true,
+                dropdown: true
+            });
         });
-        window.close();
-    });
-};
-
-document.getElementById('microphone-screen').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'false',
-        enableTabCaptureAPIAudioOnly: 'false',
-        enableMicrophone: 'true',
-        enableCamera: 'false',
-        enableScreen: 'true',
-        isRecording: 'true',
-        enableSpeakers: 'false'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
-};
-
-document.getElementById('microphone-screen-camera').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'false',
-        enableTabCaptureAPIAudioOnly: 'false',
-        enableMicrophone: 'true',
-        enableCamera: 'true',
-        enableScreen: 'true',
-        isRecording: 'true',
-        enableSpeakers: 'false'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
-};
-
-document.getElementById('microphone-webcam').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'false',
-        enableTabCaptureAPIAudioOnly: 'false',
-        enableMicrophone: 'true',
-        enableCamera: 'true',
-        enableScreen: 'false',
-        isRecording: 'true',
-        enableSpeakers: 'false'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
-};
-
-document.getElementById('microphone-speakers').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'false',
-        enableTabCaptureAPIAudioOnly: 'false',
-        enableMicrophone: 'true',
-        enableCamera: 'false',
-        enableScreen: 'false',
-        isRecording: 'true',
-        enableSpeakers: 'true'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
-};
-
-document.getElementById('microphone-only').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'false',
-        enableTabCaptureAPIAudioOnly: 'false',
-        enableMicrophone: 'true',
-        enableCamera: 'false',
-        enableScreen: 'false',
-        isRecording: 'true',
-        enableSpeakers: 'false'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
-};
-
-document.getElementById('speakers-only').onclick = function() {
-    chrome.storage.sync.set({
-        enableTabCaptureAPI: 'false',
-        enableTabCaptureAPIAudioOnly: 'false',
-        enableMicrophone: 'false',
-        enableCamera: 'false',
-        enableScreen: 'false',
-        isRecording: 'true',
-        enableSpeakers: 'true'
-    }, function() {
-        runtimePort.postMessage({
-            messageFromContentScript1234: true,
-            startRecording: true,
-            dropdown: true
-        });
-        window.close();
-    });
+    }
+    
 };
 
 document.getElementById('btn-options').onclick = function(e) {

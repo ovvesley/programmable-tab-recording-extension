@@ -124,13 +124,18 @@ header {
     margin: 0;
     width: 15px;
 }
+
+.hidden{
+  display: none;
+  position: absolute;
+}
 </style>
 
 <title>RecordRTC Extension</title>
 <link rel="manifest" href="manifest.json">
 <header>
     <img id="btn-recordings-list" src="images/list-icon.png" title="List Of Recordings">
-    <img id="btn-upload" src="images/upload-icon.png" title="Upload">
+    <img class="hidden" id="btn-upload" src="images/upload-icon.png" title="Upload">
     
     <p style="position: absolute;right: 10%;">
       <span style="font-size: .6em; margin-left: 20px;" id="file-size" title="Size"></span>
