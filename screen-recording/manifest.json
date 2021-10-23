@@ -1,12 +1,12 @@
 {  
    "name":"RecordRTC",
    "short_name":"RecordRTC",
-   "author":"Muaz Khan",
-   "version":"8.6",
+   "author":"Wesley Ferreira",
+   "version":"1.0",
    "manifest_version":2,
    "minimum_chrome_version":"49",
-   "description":"Record screen activity, camera, mic, tab, speakers in 4K HD video format (using RecordRTC)",
-   "homepage_url":"https://github.com/muaz-khan/Chrome-Extensions/tree/master/screen-recording",
+   "description":"programmable tab recording extension",
+   "homepage_url":"https://ovvesley.github.io/",
    "background":{  
       "scripts":[  
          "background/background.common.js",
