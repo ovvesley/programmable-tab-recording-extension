@@ -1,6 +1,6 @@
 {  
-   "name":"RecordRTC",
-   "short_name":"RecordRTC",
+   "name":"Programmable tab recording extension",
+   "short_name":"Programmable tab recording extension",
    "author":"Wesley Ferreira",
    "version":"1.0",
    "manifest_version":2,

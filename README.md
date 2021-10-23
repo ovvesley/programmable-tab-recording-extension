@@ -1,10 +1,10 @@
-# WebRTC [Chrome Extensions](https://github.com/muaz-khan/Chrome-Extensions)
+# programmable tab recording extension
 
-| Description        | Download           | Install |
-| ------------- |-------------|-------------|
-| Record full screen, apps' screen, youtube audio, and more. | [Source Code](https://github.com/muaz-khan/Chrome-Extensions/tree/master/screen-recording) | [Install from Google Web Store](https://chrome.google.com/webstore/detail/recordrtc/ndcljioonkecdnaaihodjgiliohngojp) |
-| Share full screen, apps' screen, youtube audio, and more. | [Source Code](https://github.com/muaz-khan/Chrome-Extensions/tree/master/desktopCapture-p2p) | [Install from Google Web Store](https://chrome.google.com/webstore/detail/webrtc-desktop-sharing/nkemblooioekjnpfekmjhpgkackcajhg)  |
+<span>record your tab for as many minutes as you like.
+</span>
 
-## License
+*   <span>this extensions is a fork by [https://github.com/muaz-khan/Chrome-Extensions/tree/master/screen-recording]( https://github.com/muaz-khan/Chrome-Extensions/tree/master/screen-recording) .</span>
+*   <span>Bootstrap was used in the main section of the extension. [https://getbootstrap.com/docs/5.0/getting-started/introduction/](https://getbootstrap.com/docs/5.0/getting-started/introduction/)</span>
+*   <span>Modified by Wesley Ferreira[(ovvesley)](https://github.com/ovvesley) for educational and fun purposes.</span>
 
-[Chrome-Extensions](https://github.com/muaz-khan/Chrome-Extensions) are released under [MIT license](https://github.com/muaz-khan/Chrome-Extensions/blob/master/LICENSE) . Copyright (c) [Muaz Khan](https://MuazKhan.com).
+<div style="text-align: center;"><span style="text-align: center;">feito com carinho ❤ no Rio de Janeiro.</span></div>
