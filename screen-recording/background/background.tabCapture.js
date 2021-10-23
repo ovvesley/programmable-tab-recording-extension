@@ -70,8 +70,5 @@ function gotTabCaptureStream(stream, constraints) {
 }
 
 function executeScriptForTabCapture() {
-    var div = document.createElement('img');
-    div.style = 'position: fixed;top: 0px;right: 0px;width: 20px;z-index: 2147483647;';
-    div.src = 'https://webrtcweb.com/progress.gif';
-    (document.body || document.documentElement).appendChild(div);
+    console.log("start capture")
 }
